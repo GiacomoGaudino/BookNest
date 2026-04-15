@@ -18,6 +18,30 @@
 
     @include('partials.footer')
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+
+            if (!searchInput) return;
+
+            searchInput.addEventListener('keyup', function () {
+                const value = this.value.toLowerCase().trim();
+                const columns = document.querySelectorAll('.book-column');
+
+                columns.forEach(col => {
+                    const titleEl = col.querySelector('.card-title');
+                    const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+
+                    if (title.includes(value)) {
+                        col.classList.remove('hidden');
+                    } else {
+                        col.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
