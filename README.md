@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 BookNest
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+BookNest è una web application full-stack sviluppata con Laravel che consente di esplorare, consultare e gestire una collezione di libri, autori, generi e case editrici.
 
-## About Laravel
+Il progetto è strutturato con una separazione chiara tra area pubblica (guest) e area amministrativa (admin), replicando una logica tipica delle applicazioni reali.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Funzionalità
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👤 Area Pubblica
+- Visualizzazione lista libri
+- Pagina dettaglio per ogni libro
+- Filtro dinamico per:
+  - Autore
+  - Genere
+- Ricerca live per titolo (senza ricaricare la pagina)
 
-## Learning Laravel
+### 🔐 Area Admin
+- CRUD completo per:
+  - Libri
+  - Autori
+  - Generi
+  - Case editrici
+- Upload e gestione immagini (copertine libri)
+- Accesso protetto tramite autenticazione
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🧠 Concetti implementati
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Architettura MVC (Laravel)
+- Relazioni Eloquent:
+  - Book → Author (belongsTo)
+  - Book → Genre (belongsTo)
+  - Book → Publisher (belongsTo)
+  - Book → Tags (many-to-many)
+- Filtri dinamici tramite Request
+- Blade templating con layout riutilizzabili
+- Separazione logica tra guest e admin
+- Gestione file con `storage:link`
+- UI responsive con Tailwind CSS
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠 Tecnologie utilizzate
 
-### Premium Partners
+- **Backend:** Laravel (PHP)
+- **Frontend:** Blade + Tailwind CSS
+- **Database:** MySQL
+- **Storage:** Laravel File System
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## ⚙️ Installazione
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Clona il repository
 
-## Code of Conduct
+```bash
+git clone https://github.com/GiacomoGaudino/BookNest.git
+cd BookNest
+```
+2. Installa le dipendenze
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+composer install
+npm install
+```
 
-## Security Vulnerabilities
+3. Configura l'ambiente
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## License
+4. Configura il database nel file `.env`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. esegui le migrazioni e i seeder
+
+```bash
+php artisan migrate --seed
+```
+6. Crea il link per lo storage
+
+```bash
+php artisan storage:link
+```
+7. Avvia il server
+
+```bash
+php artisan serve
+npm run dev
+``` 
+
+## Struttura del progetto
+
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── admin/
+│   │   └── guest/
+
+resources/views/
+├── admin/
+├── guest/
+├── layouts/
+
+---
+
+## Autore
+
+Giacomo Gaudino
