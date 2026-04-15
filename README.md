@@ -111,3 +111,52 @@ resources/views/
 ## Autore
 
 Giacomo Gaudino
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+Panoramica generale dell’applicazione.
+
+<p align="center">
+  <img src="screenshots/homepage.png" width="700"/>
+</p>
+
+---
+
+### Book List
+Visualizzazione dei libri con filtri dinamici.
+
+<p align="center">
+  <img src="screenshots/book_list.png" width="700"/>
+</p>
+
+---
+
+### Book Detail
+Dettaglio di un libro con informazioni complete.
+
+<p align="center">
+  <img src="screenshots/book_page.png" width="700"/>
+</p>
+
+---
+
+### Create Book
+Form per la creazione di un nuovo libro.
+
+<p align="center">
+  <img src="screenshots/create.png" width="700"/>
+</p>
+
+---
+
+### Login
+Accesso all'applicazione.
+
+<p align="center">
+  <img src="screenshots/login.png" width="700"/>
+</p>
+
+---
